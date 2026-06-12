@@ -5,6 +5,17 @@ import Accordion from './Accordion.vue'
 
 const isSubscribed = ref(false)
 
+const installCmd = 'brew tap kitops-ml/kitops && brew install kitops'
+const copied = ref(false)
+const copyInstall = () => {
+  navigator.clipboard?.writeText(installCmd)
+  copied.value = true
+  if (typeof window !== 'undefined' && (window as any).posthog) {
+    (window as any).posthog.capture('install_command_copied', { method: 'brew', location: 'hero' })
+  }
+  setTimeout(() => { copied.value = false }, 2000)
+}
+
 let hubspotScript: HTMLScriptElement | null = null;
 
 onMounted(() => {
@@ -60,6 +71,16 @@ onUnmounted(() => {
     <h1 class="z-0 relative mt-4! font-medium! text-[32px]! leading-[1.12]! md:text-[50px]! xl:text-[64px]!">Secure, Portable, Versioned Packages for<br><span class="bg-gradient-to-b from-gold to-[#996931] text-transparent bg-clip-text">MCPs, Skills, Agents, and Models</span></h1>
     <h2 class="z-0 relative font-bold! font-sans! text-3xl! my-6!">No lock‑in. Works with the registry you already run.</h2>
     <p class="z-0 relative h4 font-normal! text-off-white!">KitOps gives your whole agentic stack the same rigor you already apply to containers: one signed, versioned OCI artifact that runs anywhere, from public cloud to fully air‑gapped.</p>
+  </div>
+
+  <div class="mt-10 md:mt-14 xl:mt-22 max-w-xl mx-auto">
+    <div class="flex items-center justify-between gap-4 bg-night border border-[#363636] rounded-lg px-4 py-3 text-left font-mono">
+      <span class="text-off-white! overflow-x-auto whitespace-nowrap"><span class="text-gold">$</span> {{ installCmd }}</span>
+      <button type="button" @click="copyInstall" class="shrink-0 text-gold! font-bold hocus:underline cursor-pointer" :aria-label="copied ? 'Copied to clipboard' : 'Copy install command'">
+        {{ copied ? 'Copied!' : 'Copy' }}
+      </button>
+    </div>
+    <p class="p2 mt-3 text-gray-06!">macOS &amp; Linux. <a href="/docs/cli/installation/" class="text-gold! hocus:underline">Windows &amp; all install options →</a></p>
   </div>
 
   <div class="flex flex-col lg:flex-row justify-center items-center gap-10 mt-10 md:mt-14 xl:mt-22">
@@ -175,7 +196,7 @@ onUnmounted(() => {
 
     <div>
       <div class="p2 text-gold! xs:mt-12">AI Supply Chain Security, Built In</div>
-      <p class="p2">Sign with Cosign and generate SBOM‑ready evidence. Every component is SHA‑256 hashed and tamper‑evident, the same security posture you apply to container images, now applied to your agents and MCP servers. Add scanning across AI‑specific vulnerability classes and policy‑gated promotion by connecting to Jozu Hub.</p>
+      <p class="p2">Sign with Cosign and generate SBOM‑ready evidence. Every component is SHA‑256 hashed and tamper‑evident, the same security posture you apply to container images, now applied to your agents and MCP servers. Add scanning across AI‑specific vulnerability classes and policy‑gated promotion by connecting to <a href="https://jozu.ml" target="_blank" class="text-gold! hocus:underline">Jozu Hub</a>.</p>
     </div>
 
     <div>
@@ -398,7 +419,7 @@ onUnmounted(() => {
       </div>
       <div class="mt-8 flex flex-col flex-1 p2">
         <p>Install the KitOps CLI</p>
-        <code class="text-base mt-3">brew install KitOps</code>
+        <code class="text-base mt-3">brew tap kitops-ml/kitops && brew install kitops</code>
       </div>
     </div>
 
@@ -439,6 +460,16 @@ onUnmounted(() => {
       </div>
     </div>
   </div>
+</div>
+
+<div class="mt-16 md:mt-20 px-6 md:px-12 text-center content-container">
+  <p class="p1 max-w-2xl mx-auto mb-6">No registry yet? Push your first ModelKit in seconds on <strong>Jozu Hub</strong>, our free hosted sandbox — then connect the same workflow to scanning, signing, and policy gating.</p>
+  <a href="https://jozu.ml" target="_blank" class="kit-button inline-flex! items-center gap-2.5">
+    Try Jozu Hub free
+    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none">
+      <path d="M18.2156 9.48618L18.9219 8.77993L18.2156 8.07368L13.2156 3.07368L12.5094 2.36743L11.0938 3.78306C11.1344 3.82368 12.4688 5.15806 15.0938 7.78306H2.50938V9.78306H15.0938C12.4688 12.4081 11.1344 13.7424 11.0938 13.7831L12.5094 15.1987L13.2156 14.4924L18.2156 9.49243V9.48618Z" fill="currentColor"/>
+    </svg>
+  </a>
 </div>
 
 <div class="max-w-3xl mx-auto mt-32 md:mt-40 xl:mt-60 px-6 faq-section content-container">
@@ -648,3 +679,5 @@ onUnmounted(() => {
   }
 }
 </style>
+
+<!-- AGENT_MODIFIED: Human review required before merge -->

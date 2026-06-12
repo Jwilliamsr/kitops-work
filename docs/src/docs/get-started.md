@@ -27,15 +27,15 @@ In this guide, you'll:
   - If you get an error check your PATH
 - Create and navigate to a new folder (e.g., `KitStart`)
 
-## Step 1: Log In to a Registry
+## Step 1: Create an Account and Log In to a Registry
 
-You can use any OCI-compatible registry. We’ll use Jozu Hub for this example:
+You can use any OCI-compatible registry. We’ll use [Jozu Hub](https://jozu.ml) for this example — set up a free account there if you don’t have one yet.
+
+Then log in with the email and password from your account:
 
 ```sh
 kit login jozu.ml
 ```
-
-Use the email and password you signed up to your registry with.
 
 Trouble? See the [kit login docs](../cli/cli-reference.md#kit-login).
 
@@ -108,3 +108,5 @@ If you'd like to learn more about using Kit, try our [Next Steps with Kit](../ne
 * The power of `unpack`
 * Tagging ModelKits
 * Keeping your registry tidy
+
+<!-- AGENT_MODIFIED: Human review required before merge -->
