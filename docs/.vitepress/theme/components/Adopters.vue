@@ -18,9 +18,9 @@ const addYourOrgUrl = 'https://github.com/kitops-ml/kitops/issues/new?title=Adop
         they run. These are the organizations building on it.
       </p>
       <div class="mt-10">
-        <a :href="addYourOrgUrl" target="_blank" rel="noopener" class="kit-button inline-flex! items-center gap-2.5">
+        <a :href="addYourOrgUrl" target="_blank" rel="noopener noreferrer" class="kit-button inline-flex! items-center gap-2.5">
           Add your organization
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none" aria-hidden="true">
             <path d="M15.7625 2.20004H16.5125V11.2H15.0125V4.75942L5.79375 13.9782L5.2625 14.5094L4.20312 13.45L4.73438 12.9188L13.9531 3.70004H7.5125V2.20004H15.7625Z" fill="currentColor"/>
           </svg>
         </a>
@@ -65,7 +65,7 @@ const addYourOrgUrl = 'https://github.com/kitops-ml/kitops/issues/new?title=Adop
           <a
             :href="adopter.caseStudyUrl"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="inline-flex items-center gap-2 text-gold! font-bold hocus:underline no-underline!">
             Read the full case study
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none" aria-hidden="true">
@@ -90,7 +90,7 @@ const addYourOrgUrl = 'https://github.com/kitops-ml/kitops/issues/new?title=Adop
           v-if="adopter.url"
           :href="adopter.url"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="adopter-name font-mono text-gold! hocus:text-off-white! no-underline!">{{ adopter.name }}</a>
         <span v-else class="adopter-name font-mono text-gold!">{{ adopter.name }}</span>
       </li>
@@ -99,7 +99,7 @@ const addYourOrgUrl = 'https://github.com/kitops-ml/kitops/issues/new?title=Adop
     <div v-else class="adopter-card mt-10">
       <p class="p2 m-0! text-gray-06!">
         Using KitOps but not ready to write a case study? We'd still like to list you.
-        <a :href="addYourOrgUrl" target="_blank" rel="noopener" class="text-gold! hocus:underline">Open an issue</a>
+        <a :href="addYourOrgUrl" target="_blank" rel="noopener noreferrer" class="text-gold! hocus:underline">Open an issue</a>
         with your organization and a link, and we'll add you here.
       </p>
     </div>
@@ -113,7 +113,7 @@ const addYourOrgUrl = 'https://github.com/kitops-ml/kitops/issues/new?title=Adop
       </h2>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="/docs/get-started/" class="kit-button">Get started</a>
-        <a href="https://discord.gg/Tapeh8agYy" target="_blank" rel="noopener" class="kit-button kit-button-cornflower">Join the community</a>
+        <a href="https://discord.gg/Tapeh8agYy" target="_blank" rel="noopener noreferrer" class="kit-button kit-button-cornflower">Join the community</a>
       </div>
     </div>
   </div>

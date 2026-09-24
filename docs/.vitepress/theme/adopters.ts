@@ -64,7 +64,6 @@ export const caseStudyAdopters: CaseStudyAdopter[] = [
  */
 export const listedAdopters: Adopter[] = [
   { name: 'Oak Ridge National Laboratory', url: 'https://www.ornl.gov' },
-  { name: 'Arlequin AI', url: 'https://arlequin.ai' },
   { name: 'Pacific Northwest National Laboratory', url: 'https://www.pnnl.gov' },
   { name: 'De Sammensluttede Vognmænd (DSV)', url: 'https://www.dsv.com' },
   { name: 'Jozu', url: 'https://jozu.com' }
